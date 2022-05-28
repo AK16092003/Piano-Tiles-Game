@@ -1,19 +1,14 @@
 .heading{
-	
 	color:#ff0000;
 	background-color:#ffff00;
 	padding:10px;
 	font-size:calc(1vw + 0.4rem);
-	
 }
 td{
-	
 	width:10vw;
 	height:15vh;
 	border:0.2px grey solid;
 	border-radius:5px;
-	
-	
 }
 body{
 	margin:0px;
@@ -26,4 +21,13 @@ button{
 	border:none;
 	width:30vw;
 	height:3vw;
+	box-shadow : 0 7px #999;
+}
+button:hover{
+	background-color: #00ff00;
+}
+button:active{
+	background-color : #90ee90;
+	box-shadow : 0 2px #666;
+	transform : translateY(5px);
 }

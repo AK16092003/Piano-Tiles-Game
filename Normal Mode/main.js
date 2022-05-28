@@ -40,6 +40,11 @@ var possible_tiles = [];
 var choosen_tiles = []
 restart();
 
+var time_1 = 2200;   // time difference between display of each box
+var time_2 = 1100;   // time difference between opacity_increase and opacity_decrease animation
+var time_3 = 10;   // time difference for opacity to decrease step wise
+var counter = 0.01;   // amount by which opacity of box increases or decreases
+
 function restart()
 {
 	status = "start";
@@ -82,16 +87,64 @@ function display(choosen_tiles , count)
 		return ;
 	}
 	cur_box_id = choosen_tiles[count];
-	//console.log(cur_box_id);
-	document.getElementById(cur_box_id).style.backgroundColor = "#ff0000";
+	console.log(cur_box_id);
+	document.getElementById(cur_box_id).style.opacity = 0;
+	document.getElementById(cur_box_id).style.backgroundColor = "#ffffff";
+	
+	// opacity effect to the box !
+	animate(cur_box_id);
 	setTimeout(() => {
-		console.log("Delayed for 1 second.");
-		document.getElementById(cur_box_id).style.backgroundColor = "";
 		display(choosen_tiles , count + 1);
-	}, "1000");
-		
+	} , time_1);
+}
+
+function animate(id)
+{
+	console.log("start increase");
+	opacity_increase(id , 0);
+	setTimeout(() => {
+		console.log("start decrease!");
+		opacity_decrease(id , 1);
+	} , time_2);
 		
 }
+
+function opacity_increase(id , t)
+{	
+	if (t >= 1)
+	{
+		console.log("increase opacity completed");
+		return ;
+	}
+	else{
+		setTimeout(() => {
+			document.getElementById(id).style.opacity = t;
+			console.log(t);
+			opacity_increase(id , t + counter);
+		} , time_3);
+	}
+}
+
+
+function opacity_decrease(id , t)
+{	
+
+	if (t <= 0)
+	{
+		console.log("decrease opacity completed");
+		document.getElementById(id).style.backgroundColor = "";
+		document.getElementById(id).style.opacity = 1;
+		return ;
+	}
+	else{
+		setTimeout(() => {
+			document.getElementById(id).style.opacity = t;
+			console.log(t);
+			opacity_decrease(id , t - counter);
+		} , time_3);
+	}
+}
+
 function print(l)
 {
 	var len = l.length;

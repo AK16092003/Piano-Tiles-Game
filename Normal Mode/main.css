@@ -31,3 +31,11 @@ button:active{
 	box-shadow : 0 2px #666;
 	transform : translateY(5px);
 }
+
+@media screen and (max-width < max-height)
+{
+	body{
+		background-color:#000000;
+	}
+	
+}

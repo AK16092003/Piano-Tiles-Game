@@ -32,7 +32,7 @@ button:active{
 	transform : translateY(5px);
 }
 
-@media screen and (max-width < max-height)
+@media screen and (max-width:500px)
 {
 	body{
 		background-color:#000000;

@@ -10,14 +10,23 @@ function input_click(id)
 				if(choosen_tiles[i] == id)
 				{
 					console.log("good !");
+					document.getElementById(id).style.backgroundColor = "#ffff00";
 					choosen_tiles.splice(i,1);
 					possible_tiles.push(id);
 					score += 5;
 					flag = 1;
 					break;
 				}
+				
 		}
-		if(flag == 0){	
+		
+		console.log(document.getElementById(id).style.backgroundColor);
+		if(document.getElementById(id).style.backgroundColor+"" == "rgb(255, 255, 0)")
+		{
+			// user selecting a already selected tile
+			// do nothing
+		}
+		else if(flag == 0){	
 			console.log("game over");
 			alert("Game Over\nScore : "+score+" points.");
 			status = "gameover";
@@ -25,10 +34,12 @@ function input_click(id)
 	}
 	if(choosen_tiles.length == 0)
 	{
-		console.log("great you have done it , next level !");
-		cur_level += 1;
-		status = "set";
-		set_tiles();
+		setTimeout(() => {
+			console.log("great you have done it , next level !");
+			cur_level += 1;
+			status = "set";
+			set_tiles();
+		},500);
 	}
 	
 }
@@ -53,7 +64,7 @@ function restart()
 	possible_tiles = ["11" , "12" , "13" , "14" , "21" , "22" , "23" , "24" , "31" , "32" , "33" , "34" , "41" , "42" , "43" , "44"];
 	choosen_tiles = []
 	setTimeout(() => {
-		alert("Hello friend , Click ok to proceed to PIANO TILES GAME!");
+		alert("WELCOME TO PIANO TILES GAME!");
 		status = "set";
 		set_tiles();
 	},1000);
@@ -62,11 +73,18 @@ function restart()
 
 function set_tiles()
 {
-	if (cur_level == 16)
-	{
-		alert("Great ! You have cleared this game with maximum score of !"+score);
-		
+	for(var i = 1 ; i <= 4 ; i ++){
+		for(var j = 1 ; j <= 4 ; j ++ ){
+			var _id = i+""+j;
+			document.getElementById(_id).style.backgroundColor = "";
+		}
 	}
+	if (cur_level >= 16)
+	{
+		alert("Great ! You have cleared this game with maximum score of "+score+"\nYou can restart the game by clicking the below button!");
+		return ;
+	}
+	
 	for(var i = 0 ;i < cur_level ; i ++ ){
 		
 		var cur_pos = Math.floor(Math.random()*(16-i));

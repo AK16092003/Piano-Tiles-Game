@@ -1,3 +1,6 @@
+
+alert("Width : "+document.body.clientWidth+"\nHeight : "+document.body.clientHeight);
+
 function input_click(id)
 {
 	console.log("Clicked Button : ",id);	

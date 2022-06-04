@@ -5,91 +5,6 @@
 </head>
 <body bgcolor = "white">
 <style>
-.rule_lst{
-    overflow: auto;
-}
-.heading_1
-{
-    overflow: hidden;
-    background-color: aliceblue;
-    margin: 0px;
-}
-.heading_1 .welcome
-{
-    display: block;
-    border-radius: 100px;
-    background-color: greenyellow;
-    border:none;
-    font-size: 3vw;
-    padding: 2vw 2vw;
-    position: relative;
-    animation: move1 3s infinite;  
-    animation-direction: alternate;
-    float:left;
-    margin: 1vw;
-}
-img{   
-    max-height: 100px;
-    max-width: 100px;
-}
-.rules{
-
-    animation : move2 1s infinite;
-    animation-direction: alternate;
-
-}
-
-li{
-    float:left;
-    font-size:15px;
-    padding:5px 5px;
-    font-family: "Times New Roman", Times, serif;
-
-}
-
-.play_decor .play{
-    position: absolute;
-    left:25px;
-    top :12px;
-    width:40px;
-    height:50px;
-    box-sizing: border-box;
-    border-style: solid;
-    /*top , right , bottom , left */
-    border-width: 25px 0px 25px 50px;
-    border-color: transparent transparent transparent greenyellow;     
-}
-.play_decor{
-    position: absolute;
-    left:45vw;
-    width:90px;
-    height:70px;
-    display:block;
-    overflow:auto;
-    border:thick solid;
-    border-radius: 100px;
-    background-color:yellow;
-}
-.play_decor .play:hover{
-    border-color: transparent transparent transparent lightgreen;     
-}
-.play_decor .play:active{
-    transform:translateY(2px);
-}
-@keyframes move1
-{
-  0%   {background: red; left: 0px; top: 0px;}
-  25%  {background: yellow; left:40vw; top: 0px;}
-  50%  {background: blue; left: 40vw; top: 1vw;}
-  75%  {background: green; left: 0px; top: 1vw;}
-  100% {background: red; left: 0px; top: 0px;}
-}
-
-@keyframes move2
-{
-    from {color:#FFF;}
-    to {color:#000;}
-}
 
 
 </style>
@@ -120,9 +35,13 @@ li{
     <div class="rule_lst">
         <ul>
             <li>A set of tiles in 4x4 grid would light up , the user have to memorize the position of the tiles which lights up.</li>
+            
             <li>Then the user would be allowed to select the specific tiles which light up before. If the user selects all tiles correctly in any order , then they would proceed to the next level.</li>
-            <li>In each successive level , the number of tiles that light up would increase.</li>
+            
+            <li>In each successive level , the number of tiles that light up would increase by 1. So every time , the game gets tougher !</li>
+
             <li>Selecting an incorrect tile would lead to termination of the game ! , In order to play again , user have to restart the game .</li>
+            
             <li>Each correct tile selected would give a score of 5 points , irrespective of the time taken to select them .</li>
         </ul>
     </div>

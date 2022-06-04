@@ -57,7 +57,137 @@ td{
 td:hover{
 	background-color: #666;
 }
+
+.rule_lst{
+    overflow: auto;
+}
+.heading_1
+{
+    overflow: hidden;
+    background-color: aliceblue;
+    margin: 0px;
+}
+.heading_1 .welcome
+{
+    display: block;
+    border-radius: 100px;
+    background-color: greenyellow;
+    border:none;
+    font-size: 3vw;
+    padding: 2vw 2vw;
+    position: relative;
+    animation: move1 3s infinite;  
+    animation-direction: alternate;
+    float:left;
+    margin: 1vw;
+}
+
+.rules{
+
+    animation : move2 1s infinite;
+    animation-direction: alternate;
+
+}
+
+li{
+    text-align : left;
+    float:left;
+    font-size:15px;
+    padding:5px 5px;
+    font-family: "Times New Roman", Times, serif;
+
+}
+
+.play_decor .play{
+    position: absolute;
+    left:25px;
+    top :12px;
+    width:40px;
+    height:50px;
+    box-sizing: border-box;
+    border-style: solid;
+    /*top , right , bottom , left */
+    border-width: 25px 0px 25px 50px;
+    border-color: transparent transparent transparent greenyellow;     
+}
+.play_decor{
+    position: absolute;
+    left:45vw;
+    width:90px;
+    height:70px;
+    display:block;
+    overflow:auto;
+    border:thick solid;
+    border-radius: 100px;
+    background-color:yellow;
+}
+.play_decor .play:hover{
+    border-color: transparent transparent transparent lightgreen;     
+}
+.play_decor .play:active{
+    transform:translateY(2px);
+}
+@keyframes move1
+{
+  0%   {background: red; left: 0px; top: 0px;}
+  25%  {background: yellow; left:40vw; top: 0px;}
+  50%  {background: blue; left: 40vw; top: 1vw;}
+  75%  {background: green; left: 0px; top: 1vw;}
+  100% {background: red; left: 0px; top: 0px;}
+}
+
+@keyframes move2
+{
+    from {color:#FFF;}
+    to {color:#000;}
+}
+
 @keyframes move3 {
 	from {transform : rotate(-1deg);}
 	to	 {transform : rotate(+1deg);}
 }
+
+@media (orientation: portrait) {
+	.heading{
+		font-size:calc(1vh + 0.4rem);
+	}
+	.restart{
+		width:max(30vh , 150px);
+		height:max(3vh , 20px);
+		font-size: 30px;
+	}
+	.top_bar a{
+		display: block;
+		padding: 10px 10px;
+		font-size: 30px;	
+		color:aliceblue;
+		text-decoration: none;
+		float:left;
+	}
+	td{
+		width:min(15vh,15vw);
+		height:min(20vw , 20vh);
+	}
+		
+	@keyframes move1
+	{
+	0%   {background: red; left: 0px; top: 0px;}
+	25%  {background: yellow; left:40vw; top: 0px;}
+	50%  {background: blue; left: 40vw; top: 3vh;}
+	75%  {background: green; left: 0px; top: 3vh;}
+	100% {background: red; left: 0px; top: 0px;}
+	}
+	h3{
+		font-size: 30px;
+	}
+	.rules{
+		font-size :40px;	
+	}
+	li{
+		font-size: 30px;
+                float : left;
+	}
+	.heading_1{
+                 height : 10vh;
+        }
+}					

@@ -10,7 +10,7 @@ function input_click(id)
 				if(choosen_tiles[i] == id)
 				{
 					console.log("good !");
-					document.getElementById(id).style.backgroundColor = "#ffff00";
+					document.getElementById(id).style.backgroundColor = "#ff0000"; // red color to tile when clicked
 					choosen_tiles.splice(i,1);
 					possible_tiles.push(id);
 					score += 5;
@@ -21,7 +21,7 @@ function input_click(id)
 		}
 		
 		console.log(document.getElementById(id).style.backgroundColor);
-		if(document.getElementById(id).style.backgroundColor+"" == "rgb(255, 255, 0)")
+		if(document.getElementById(id).style.backgroundColor+"" == "rgb(255, 0, 0)")
 		{
 			// user selecting a already selected tile
 			// do nothing
@@ -34,6 +34,17 @@ function input_click(id)
 	}
 	if(choosen_tiles.length == 0)
 	{
+
+		setTimeout(() => {
+			for(var i = 1 ; i <= 4 ; i ++){
+				for(var j = 1 ; j <= 4 ; j ++ ){
+					var _id = i+""+j;
+					if(document.getElementById(_id).style.backgroundColor+"" == "rgb(255, 0, 0)")
+							document.getElementById(_id).style.backgroundColor = "#90E090";
+				}
+			}
+		},100);
+		
 		setTimeout(() => {
 			console.log("great you have done it , next level !");
 			cur_level += 1;
@@ -58,13 +69,20 @@ var counter = 0.01;   // amount by which opacity of box increases or decreases
 
 function restart()
 {
+	
+	for(var i = 1 ; i <= 4 ; i ++){
+		for(var j = 1 ; j <= 4 ; j ++ ){
+			var _id = i+""+j;
+			document.getElementById(_id).style.backgroundColor = "";
+		}
+	}
 	status = "start";
 	cur_level = 1;
 	score = 0;
 	possible_tiles = ["11" , "12" , "13" , "14" , "21" , "22" , "23" , "24" , "31" , "32" , "33" , "34" , "41" , "42" , "43" , "44"];
 	choosen_tiles = []
 	setTimeout(() => {
-		alert("WELCOME TO PIANO TILES GAME!");
+		alert("The game is going to start now! Be alert!");
 		status = "set";
 		set_tiles();
 	},1000);
@@ -73,12 +91,20 @@ function restart()
 
 function set_tiles()
 {
+	
+	// make all bgcolor of elements to default
+	// disable hover effect when setting up the question
+	
 	for(var i = 1 ; i <= 4 ; i ++){
 		for(var j = 1 ; j <= 4 ; j ++ ){
 			var _id = i+""+j;
 			document.getElementById(_id).style.backgroundColor = "";
+			document.getElementById(_id).style.pointerEvents = "none";
 		}
 	}
+	
+	
+	
 	if (cur_level >= 16)
 	{
 		alert("Great ! You have cleared this game with maximum score of "+score+"\nYou can restart the game by clicking the below button!");
@@ -95,13 +121,23 @@ function set_tiles()
 	console.log("choosen tiles : ");
 	print(choosen_tiles);
 	display(choosen_tiles , 0);
-	
+
 }
 function display(choosen_tiles , count)
 {
 	if (count == cur_level)
 	{
 		status = "play";
+		// set hover properties of box to default
+	
+		for(var i = 1 ; i <= 4 ; i ++){
+			for(var j = 1 ; j <= 4 ; j ++ ){
+				var _id = i+""+j;
+				document.getElementById(_id).style.pointerEvents = "auto";
+			}
+		}
+			
+
 		return ;
 	}
 	cur_box_id = choosen_tiles[count];
@@ -137,7 +173,7 @@ function opacity_increase(id , t)
 	else{
 		setTimeout(() => {
 			document.getElementById(id).style.opacity = t;
-			console.log(t);
+			//console.log(t);
 			opacity_increase(id , t + counter);
 		} , time_3);
 	}
@@ -157,7 +193,7 @@ function opacity_decrease(id , t)
 	else{
 		setTimeout(() => {
 			document.getElementById(id).style.opacity = t;
-			console.log(t);
+			//console.log(t);
 			opacity_decrease(id , t - counter);
 		} , time_3);
 	}

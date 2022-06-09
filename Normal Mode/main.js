@@ -1,39 +1,46 @@
+var selected_tiles = 0;
 function input_click(id)
 {
 	console.log("Clicked Button : ",id);	
-	
+
 	if (status == "play")
 	{
 		
 		var flag = 0;
 		for(var i = 0 ; i < cur_level ; i ++){
-				if(choosen_tiles[i] == id)
+				if(choosen_tiles[i] == id && document.getElementById(id).style.backgroundColor+"" != "rgb(255, 0, 0)")
 				{
+					// newly selected tile
+
 					console.log("good !");
 					document.getElementById(id).style.backgroundColor = "#ff0000"; // red color to tile when clicked
-					choosen_tiles.splice(i,1);
-					possible_tiles.push(id);
+					//choosen_tiles.splice(i,1);
+					//possible_tiles.push(id);
 					score += 5;
+					selected_tiles+=1;
 					flag = 1;
 					break;
 				}
 				
 		}
 		
-		console.log(document.getElementById(id).style.backgroundColor);
-		if(document.getElementById(id).style.backgroundColor+"" == "rgb(255, 0, 0)")
+		if(flag == 0 && document.getElementById(id).style.backgroundColor+"" == "rgb(255, 0, 0)")
 		{
 			// user selecting a already selected tile
 			// do nothing
+			console.log("The user is selected an already selected tile !");
+
 		}
-		else if(flag == 0){	
+		if(flag == 0 && document.getElementById(id).style.backgroundColor+"" != "rgb(255, 0, 0)"){	
 			console.log("game over");
 			alert("Game Over\nScore : "+score+" points.");
 			status = "gameover";
 		}
 	}
-	if(choosen_tiles.length == 0)
+	if(selected_tiles == cur_level)
 	{
+		// selected all tiles
+		// goto next level
 
 		setTimeout(() => {
 			for(var i = 1 ; i <= 4 ; i ++){
@@ -41,6 +48,7 @@ function input_click(id)
 					var _id = i+""+j;
 					if(document.getElementById(_id).style.backgroundColor+"" == "rgb(255, 0, 0)")
 							document.getElementById(_id).style.backgroundColor = "#90E090";
+							//  green for correct tile!
 				}
 			}
 		},100);
@@ -91,7 +99,7 @@ function restart()
 
 function set_tiles()
 {
-	
+	selected_tiles = 0;
 	// make all bgcolor of elements to default
 	// disable hover effect when setting up the question
 	
@@ -110,14 +118,11 @@ function set_tiles()
 		alert("Great ! You have cleared this game with maximum score of "+score+"\nYou can restart the game by clicking the below button!");
 		return ;
 	}
-	
-	for(var i = 0 ;i < cur_level ; i ++ ){
+	var cur_pos = Math.floor(Math.random()*possible_tiles.length);
+	var cur_box = possible_tiles[cur_pos]; // cur box to be added
+	possible_tiles.splice(cur_pos,1);
+	choosen_tiles.push(cur_box);
 		
-		var cur_pos = Math.floor(Math.random()*(16-i));
-		var cur_box = possible_tiles[cur_pos];
-		possible_tiles.splice(cur_pos,1);
-		choosen_tiles.push(cur_box);
-	}
 	console.log("choosen tiles : ");
 	print(choosen_tiles);
 	display(choosen_tiles , 0);
@@ -136,20 +141,23 @@ function display(choosen_tiles , count)
 				document.getElementById(_id).style.pointerEvents = "auto";
 			}
 		}
-			
-
 		return ;
+
 	}
+
 	cur_box_id = choosen_tiles[count];
 	console.log(cur_box_id);
 	document.getElementById(cur_box_id).style.opacity = 0;
 	document.getElementById(cur_box_id).style.backgroundColor = "#ffffff";
 	
 	// opacity effect to the box !
+	
 	animate(cur_box_id);
+	
 	setTimeout(() => {
-		display(choosen_tiles , count + 1);
-	} , time_1);
+			display(choosen_tiles , count + 1);
+		} , time_1);
+	
 }
 
 function animate(id)

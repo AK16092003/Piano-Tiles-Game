@@ -1,0 +1,72 @@
+<html>
+<head>
+<link rel = "stylesheet" href = "main.css">
+<title>Piano Tiles Game</title>
+</head>
+<body bgcolor = "red">
+
+<div class = "heading">
+<center><h1><div class = "text">PIANO TILES GAME</div></h1></center>
+</div>
+
+<div class = "top_bar">
+	<a href = "home.html" class = "main">Home</a>
+	<a href = "set.html">Set Question</a>	
+	<a href = "main.html">Play</a>	
+    <a href = "leaderboard.html">Leader Board</a>
+</div>
+
+<center>
+    <h1 style = "font-size:6vw; color: orange; border-radius: 1000px; background-image: linear-gradient(rgba(255,255,255,0.5), rgba(0,0,0,0.5));">GAME OVER</h1>
+    <h2>Score: <div id = "_score" style = "display: inline-block;"></div></h2>
+    <h2>Time: <div id = "_time" style = "display: inline-block;"></div></h2>
+    <button onclick = restart() class="restart"> RESTART </button>    
+    <br>
+    <button onclick = add_to_leaderboard() class="add_leaderboard"> ADD IN LEADERBOARD </button>    
+</center>
+
+</center>
+<script>
+    // play game termination song as soon as this page is visible.
+    
+    function restart()
+    {
+        window.location.replace("set.html");
+    }
+    var score = 0;
+    try{
+        score = localStorage.getItem("score");
+        document.getElementById("_score").innerHTML = localStorage.getItem("score");
+    }catch{
+        score = 0;
+        document.getElementById("_score").innerHTML = "0";
+    }
+
+    var time = 0;
+    try{
+        time = localStorage.getItem("time");
+        document.getElementById("_time").innerHTML = localStorage.getItem("time");
+    }catch{
+        time = 0;
+        document.getElementById("_time").innerHTML = "0";
+    }
+
+    function add_to_leaderboard(){
+        var name = prompt("Enter Your Name : ");
+        var count = localStorage.getItem("count");
+        if (count == null)
+        {
+            count = 0;
+        }
+        count = parseInt(count);
+        localStorage.setItem("Name"+(count+1),name);
+        localStorage.setItem("Score"+(count+1),score);
+        localStorage.setItem("Time"+(count+1),time);
+        localStorage.setItem("count" , (count+1));
+        window.location.replace("leaderboard.html");
+    }
+    </script>
+</body>
+
+
+</html>

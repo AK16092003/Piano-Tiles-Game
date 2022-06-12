@@ -1,0 +1,90 @@
+<html>
+<head>
+<link rel = "stylesheet" href = "main.css">
+<title>Piano Tiles Game</title>
+</head>
+<body bgcolor = "lightgreen">
+<div class = "heading">
+<center><h1><div class = "text">PIANO TILES GAME</div></h1></center>
+</div>
+
+
+<div class = "top_bar">
+	<a href = "home.html" class = "main">Home</a>
+	<a href = "set.html">Set Question</a>	
+	<a href = "main.html">Play</a>	
+    <a href = "leaderboard.html">Leader Board</a>
+</div>
+
+<audio id = "myAudio">
+	<source src="songs/game_over.wav"> 
+</audio>
+<br>
+
+<center>
+
+<h2 id = "">SET QUESTION - CHOOSE TILES HERE</h2>
+<table>
+
+<tr> 
+	<td  class = "tiles" id = "11" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "12" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "13" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "14" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "15" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "16" onclick = input_click(this.id) ></td>
+</tr>
+
+<tr> 
+	<td  class = "tiles" id = "21" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "22" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "23" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "24" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "25" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "26" onclick = input_click(this.id) ></td>
+</tr>
+
+<tr> 
+	<td  class = "tiles" id = "31" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "32" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "33" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "34" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "35" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "36" onclick = input_click(this.id) ></td>
+</tr>
+
+<tr> 
+	<td  class = "tiles" id = "41" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "42" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "43" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "44" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "45" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "46" onclick = input_click(this.id) ></td>
+</tr>
+<tr> 
+	<td  class = "tiles" id = "51" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "52" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "53" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "54" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "55" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "56" onclick = input_click(this.id) ></td>
+</tr>
+<tr> 
+	<td  class = "tiles" id = "61" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "62" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "63" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "64" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "65" onclick = input_click(this.id) ></td>
+	<td  class = "tiles" id = "66" onclick = input_click(this.id) ></td>
+</tr>
+
+
+</table>
+
+<button onclick = proceed() class="proceed"> PROCEED </button>    
+    
+</center>
+
+<script src = "set.js"></script>
+</body>
+</html>

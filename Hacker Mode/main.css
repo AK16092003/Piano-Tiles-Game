@@ -200,6 +200,11 @@ li{
 		height:max(3vh , 20px);
 		font-size: 30px;
 	}
+	.add_leaderboard{
+		width:max(30vh , 150px);
+		height:max(3vh , 20px);
+		font-size: 30px;
+	}
 	.top_bar a{
 		display: block;
 		padding: 10px 10px;

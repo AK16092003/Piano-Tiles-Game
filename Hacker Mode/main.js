@@ -125,11 +125,14 @@ function set_tiles()
 	
 	
 	
-	if (cur_level >= 36)
+		
+	if (cur_level >= 37)
 	{
-		alert("Great ! You have cleared this game with maximum score of "+score+"\nYou can restart the game by clicking the below button!");
+		alert("Great ! You have cleared this game");
+		win_game();
 		return ;
 	}
+
 	var cur_pos = Math.floor(Math.random()*possible_tiles.length);
 	var cur_box = possible_tiles[cur_pos]; // cur box to be added
 	possible_tiles.splice(cur_pos,1);
@@ -255,5 +258,17 @@ function game_over()
 	game_termination_song();
 	setTimeout(()=>{
 		window.location.replace("game_over.html");
+	} , 1000);
+}
+
+function win_game()
+{
+	status = "game win";
+	document.getElementById("_time").innerHTML = "0.00 s";
+	clearInterval(time_interval_id);
+	localStorage.setItem("score" , score);
+	localStorage.setItem("time" , time_var.toFixed(2));
+	setTimeout(()=>{
+		window.location.replace("win_game.html");
 	} , 1000);
 }

@@ -43,10 +43,10 @@
     for(var i = 1 ; i <= count ; i ++ ){
         for(var j = i+1 ; j <= count ; j ++ )
         {
-            score_1 = localStorage.getItem("Score"+i);
-            score_2 = localStorage.getItem("Score"+j);
-            time_1 = localStorage.getItem("Time"+i);
-            time_2 = localStorage.getItem("Time"+j);
+            score_1 = parseInt(localStorage.getItem("Score"+i));
+            score_2 = parseInt(localStorage.getItem("Score"+j));
+            time_1 = parseInt(localStorage.getItem("Time"+i));
+            time_2 = parseInt(localStorage.getItem("Time"+j));
             if(score_1 < score_2)
             {
                 interchange("Score"+i , "Score"+j);

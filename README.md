@@ -8,4 +8,4 @@ Link for the website is here : https://ak16092003.github.io/Piano-Tiles-Game/Nor
 Link for the website is here : https://ak16092003.github.io/Piano-Tiles-Game/Hacker%20Mode/home.html
 
 ## Hacker++ Mode:
-Link for the website is here : 
+Link for the website is here : https://ak16092003.github.io/Piano-Tiles-Game/Hacker%20Mode%20++/home.html
